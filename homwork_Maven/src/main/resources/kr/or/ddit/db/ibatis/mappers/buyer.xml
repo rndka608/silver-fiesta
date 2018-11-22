@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="Buyer">
+	<select id="selectBuyerList" resultClass="buyerVO">
+	SELECT
+    buyer_id, buyer_name, buyer_lgu,
+    buyer_bank, buyer_bankno, buyer_bankname,
+    buyer_zip, buyer_add1, buyer_add2,
+    buyer_comtel, buyer_fax, buyer_mail,
+    buyer_charger, buyer_telext
+	FROM
+    buyer
+    ORDER BY ROWID DESC
+	</select>
+
+	<insert id="insertBuyer" parameterClass="buyerVO">
+	INSERT INTO BUYER (
+	    BUYER_ID,  BUYER_NAME, 
+	    BUYER_BANK, BUYER_BANKNO, BUYER_BANKNAME,
+	    BUYER_ZIP, BUYER_ADD1, BUYER_ADD2,
+	    BUYER_COMTEL, BUYER_FAX, BUYER_MAIL,
+	    BUYER_CHARGER
+	) VALUES (
+ 		 #buyer_id#,  #buyer_name#,
+   		 #buyer_bank#, #buyer_bankno#, #buyer_bankname#,
+    	 #buyer_zip#, #buyer_add1#, #buyer_add2#,
+    	 #buyer_comtel#, #buyer_fax#, #buyer_mail#,
+    	 #buyer_charger#
+	)
+	</insert>
+</sqlMap>
